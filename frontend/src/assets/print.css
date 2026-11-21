@@ -1,0 +1,58 @@
+/*
+ * Receipt printing (80mm thermal and A4).
+ *
+ * <ReceiptPrint> renders inside `.print-area`. printReceipt(format) in
+ * utils/print.ts sets <html data-print="80mm|a4"> and injects the matching
+ * @page size, then calls window.print(). On screen the receipt is hidden; in
+ * print, only the receipt is visible.
+ */
+
+.print-area {
+  display: none;
+}
+
+@media print {
+  /* Hide the whole app, show only the receipt. */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    display: block;
+    position: absolute;
+    inset: 0 auto auto 0;
+    color: #000;
+    background: #fff;
+  }
+
+  /* Thermal printers print black only; keep backgrounds off. */
+  * {
+    -webkit-print-color-adjust: economy;
+    print-color-adjust: economy;
+  }
+
+  /* 80mm thermal roll: about 72mm printable, small type, no margins. */
+  html[data-print='80mm'] .print-area {
+    width: 72mm;
+    padding: 2mm 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  /* A4 invoice-style receipt. */
+  html[data-print='a4'] .print-area {
+    width: 100%;
+    padding: 0;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .receipt-line {
+    break-inside: avoid;
+  }
+}

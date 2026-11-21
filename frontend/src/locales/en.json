@@ -1,0 +1,68 @@
+{
+  "app": {
+    "name": "POS System",
+    "comingSoon": "This page is coming soon."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "stock": "Stock",
+    "transfers": "Transfers",
+    "pos": "Sell",
+    "members": "Members",
+    "debts": "Debts",
+    "reports": "Reports",
+    "users": "Users",
+    "settings": "Settings",
+    "openPos": "Open POS",
+    "backOffice": "Back office",
+    "menu": "Menu"
+  },
+  "roles": {
+    "ADMIN": "Admin",
+    "CASHIER": "Cashier"
+  },
+  "language": {
+    "label": "Language",
+    "km": "ខ្មែរ",
+    "en": "English"
+  },
+  "common": {
+    "loading": "Loading…",
+    "noData": "No data",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "pageOf": "Page {page} of {total}"
+  },
+  "validation": {
+    "required": "This field is required.",
+    "minLength": "Too short.",
+    "maxLength": "Too long.",
+    "username": "Use only letters, numbers, \".\", \"_\" and \"-\".",
+    "money": "Enter an amount like 12.50.",
+    "percent": "Enter a percentage from 0 to 100."
+  },
+  "errors": {
+    "network": "Can't reach the server. Check the connection.",
+    "unexpected": "Something went wrong. Please try again."
+  },
+  "receipt": {
+    "title": "Receipt",
+    "number": "No.",
+    "date": "Date",
+    "cashier": "Cashier",
+    "member": "Member",
+    "item": "Item",
+    "qty": "Qty",
+    "price": "Price",
+    "amount": "Amount",
+    "subtotal": "Subtotal",
+    "discount": "Discount ({percent}%)",
+    "total": "Total",
+    "credit": "Credit sale (unpaid)",
+    "thanks": "Thank you!"
+  }
+}

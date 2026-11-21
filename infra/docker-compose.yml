@@ -1,0 +1,41 @@
+# Development database for the POS system. Only Postgres runs in Docker.
+# The backend and frontend run locally with hot reload.
+# See infra/README.md.
+#
+# Run it from backend/ so the credentials come from backend/.env:
+#
+#   npm run db:up      # start and wait until healthy
+#   npm run db:down    # stop (keeps the data volume)
+#
+# Values come from backend/.env (DB_USER / DB_PASS / DB_NAME / DB_PORT), so
+# the database always matches what the backend connects with. The defaults
+# below are only used when no env file is given.
+name: pos-system
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: pos-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-pos}
+      POSTGRES_PASSWORD: ${DB_PASS:-pos_password}
+      POSTGRES_DB: ${DB_NAME:-pos}
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      # Bound to 127.0.0.1: reachable from this machine only, not from the LAN.
+      - "127.0.0.1:${DB_PORT:-5433}:5432"
+    volumes:
+      - pos_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  # Holds all database data. `npm run db:down` keeps it. Only an explicit
+  # `docker volume rm pos-system_pos_pgdata` deletes it.
+  pos_pgdata:

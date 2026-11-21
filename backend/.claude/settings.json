@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run start:dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:*)",
+      "Bash(npm test)",
+      "Bash(npm test:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run db:up)",
+      "Bash(npm run db:down)",
+      "Bash(npm run migration:generate:*)",
+      "Bash(npm run migration:run)",
+      "Bash(npm run seed)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vitest:*)",
+      "Bash(npx @nestjs/skills:*)",
+      "Bash(docker compose ps:*)",
+      "Bash(docker compose logs:*)",
+      "Bash(docker ps:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(curl http://localhost:3000/*)",
+      "WebFetch(domain:docs.nestjs.com)",
+      "WebFetch(domain:typeorm.io)",
+      "WebFetch(domain:core.telegram.org)"
+    ],
+    "ask": [
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm run migration:revert)",
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(docker compose down:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Edit(./.env)",
+      "Bash(cat .env*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(docker volume rm:*)",
+      "Bash(docker compose down -v:*)",
+      "Bash(npm publish:*)"
+    ]
+  }
+}
