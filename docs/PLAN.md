@@ -2,9 +2,7 @@
 
 Nham Teuk · Final Year Project Team · IT Project Management (I5, 2026-2027 Semester 1)
 
-Client: Hun Channy, shop Chea Ny, Orussey Market Stall 50–53. Desktop/web POS (no POS hardware) for 1,000+ products, 30+ categories, 10 units, under 10 users, 3 stock locations (Warehouse A, Warehouse B, Shop C) and a Telegram bot.
-
-Keep this file at the root of the repository (or in `docs/`) and update it every week: the weekly progress check compares it with the code. Tick a task when it is done (`- [x]`), and change the dates, the owners and the tasks when the plan changes.
+Keep this file at the root of the repository (or in `docs/`) and update it every week: the weekly progress check compares it with the code. Tick a task when it is done (`- [x]`), and change the dates, the owners and the tasks when the plan changes; write why under "Changes to the plan".
 
 ## Team
 
@@ -23,20 +21,20 @@ Keep this file at the root of the repository (or in `docs/`) and update it every
 | Proposal approved | 2026-11-27 |
 | Design reviewed | 2026-12-04 |
 | Sprint 1 review | 2026-12-18 |
-| Midterm demo | 2027-01-01 |
+| Midterm demo | 2027-01-04 |
 | Sprint 3 review | 2027-01-15 |
 | Release | 2027-01-29 |
 | Final presentation | 2027-02-05 |
 
-## 1. Start (week 1, 2026-11-23 to 2026-11-27)
+## 1. Start (week 1, 2026-11-26 to 2026-11-27)
 
-- [ ] Kick-off: roles, repository, task board · 2026-11-23 to 2026-11-24 · THY PHAROTH, OUN RITHI, PENG SEYHA, ROM TOLA, SAM NANGALEX
-- [ ] Requirements and user stories for admin, cashier, stock transfers, members and credit · 2026-11-25 to 2026-11-27 · THY PHAROTH
-- [ ] Visit the stall: current sales and stock flow between Warehouse A, B and Shop C, sample receipts · 2026-11-25 to 2026-11-26 · PENG SEYHA
-- [ ] Collect the client's product list, 30+ categories and 10 units · 2026-11-25 to 2026-11-27 · PENG SEYHA
-- [ ] Choose the tech stack and set up the backend and database · 2026-11-25 to 2026-11-27 · THY PHAROTH
-- [ ] Set up the frontend project: layout, routing, shared components · 2026-11-25 to 2026-11-27 · THY PHAROTH
-- [ ] Create the Telegram bot and test sending a message to the client's chat · 2026-11-25 to 2026-11-27 · ROM TOLA
+- [ ] Kick-off: roles, repository, task board · 2026-11-26 · THY PHAROTH, OUN RITHI, PENG SEYHA, ROM TOLA, SAM NANGALEX
+- [ ] Requirements and user stories for admin, cashier, stock transfers, members and credit · 2026-11-26 to 2026-11-27 · THY PHAROTH
+- [ ] Visit the stall: current sales and stock flow between Warehouse A, B and Shop C, sample receipts · 2026-11-26 · PENG SEYHA
+- [ ] Collect the client's product list, 30+ categories and 10 units · 2026-11-26 to 2026-11-27 · PENG SEYHA
+- [ ] Choose the tech stack and set up the backend and database · 2026-11-26 to 2026-11-27 · THY PHAROTH
+- [ ] Set up the frontend project: layout, routing, shared components · 2026-11-26 to 2026-11-27 · THY PHAROTH
+- [ ] Create the Telegram bot and test sending a message to the client's chat · 2026-11-26 to 2026-11-27 · ROM TOLA
 - [ ] **Milestone: Proposal approved** · 2026-11-27
 
 ## 2. Design (week 2, 2026-11-30 to 2026-12-04)
@@ -57,16 +55,16 @@ Keep this file at the root of the repository (or in `docs/`) and update it every
 - [ ] Stock locations (Warehouse A, B, Shop C) and stock in/out at Warehouse A · 2026-12-08 to 2026-12-18 · ROM TOLA
 - [ ] **Milestone: Sprint 1 review** · 2026-12-18
 
-## 4. Sprint 2 (weeks 5–6, 2026-12-21 to 2027-01-01)
+## 4. Sprint 2 (weeks 5–7, 2026-12-21 to 2027-01-04)
 
 - [ ] Sprint 2 planning and backlog · 2026-12-21 · THY PHAROTH
-- [ ] Sale screen: cart, % discount only (no price edits), payment, stock taken from Shop C (frontend) · 2026-12-21 to 2027-01-01 · OUN RITHI
+- [ ] Sale screen: cart, % discount only (no price edits), payment, stock taken from Shop C (frontend) · 2026-12-21 to 2026-12-31 · OUN RITHI
 - [ ] Receipt printing on 80mm and A4 · 2026-12-21 to 2026-12-25 · SAM NANGALEX
-- [ ] Stock transfers A → B → C: pending until the receiver confirms, received quantity can be adjusted, both amounts kept · 2026-12-21 to 2027-01-01 · THY PHAROTH
-- [ ] Members: cashier adds members, visit count and total spend updated on each sale · 2026-12-21 to 2027-01-01 · SAM NANGALEX
-- [ ] Telegram bot sends every receipt · 2026-12-28 to 2027-01-01 · ROM TOLA
-- [ ] Unit and integration tests for sales, stock and transfers · 2026-12-21 to 2027-01-01 · ROM TOLA
-- [ ] **Milestone: Midterm demo** · 2027-01-01
+- [ ] Stock transfers A → B → C: pending until the receiver confirms, received quantity can be adjusted, both amounts kept · 2026-12-21 to 2026-12-31 · THY PHAROTH
+- [ ] Members: cashier adds members, visit count and total spend updated on each sale · 2026-12-21 to 2026-12-31 · SAM NANGALEX
+- [ ] Telegram bot sends every receipt · 2026-12-28 to 2026-12-31 · ROM TOLA
+- [ ] Unit and integration tests for sales, stock and transfers · 2026-12-21 to 2026-12-31 · ROM TOLA
+- [ ] **Milestone: Midterm demo** · 2027-01-04
 
 ## 5. Sprint 3 (weeks 7–8, 2027-01-04 to 2027-01-15)
 
@@ -110,3 +108,9 @@ Keep this file at the root of the repository (or in `docs/`) and update it every
 | Khmer product names do not show or print correctly | Medium | Medium | Test Khmer fonts on screen and on receipts in Sprint 1 |
 | Internet at the stall is down, so Telegram messages fail | Medium | Low | A sale never waits for Telegram; failed messages are retried later |
 | Member debts grow with no credit limit | Medium | Medium | Debts and payment history are shown on the dashboard for the admin |
+
+## Changes to the plan
+
+| Date | Change | Why |
+|---|---|---|
+| 2026-11-23 | First plan | |
