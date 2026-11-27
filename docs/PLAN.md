@@ -28,9 +28,9 @@ Keep this file at the root of the repository (or in `docs/`) and update it every
 
 ## 1. Start (week 1, 2026-11-26 to 2026-11-27)
 
-- [ ] Kick-off: roles, repository, task board · 2026-11-26 · THY PHAROTH, OUN RITHI, PENG SEYHA, ROM TOLA, SAM NANGALEX
+- [x] Kick-off: roles, repository, task board · 2026-11-26 · THY PHAROTH, OUN RITHI, PENG SEYHA, ROM TOLA, SAM NANGALEX
 - [ ] Requirements and user stories for admin, cashier, stock transfers, members and credit · 2026-11-26 to 2026-11-27 · THY PHAROTH
-- [ ] Visit the stall: current sales and stock flow between Warehouse A, B and Shop C, sample receipts · 2026-11-26 · PENG SEYHA
+- [x] Visit the stall: current sales and stock flow between Warehouse A, B and Shop C, sample receipts · 2026-11-26 · PENG SEYHA
 - [ ] Collect the client's product list, 30+ categories and 10 units · 2026-11-26 to 2026-11-27 · PENG SEYHA
 - [ ] Choose the tech stack and set up the backend and database · 2026-11-26 to 2026-11-27 · THY PHAROTH
 - [ ] Set up the frontend project: layout, routing, shared components · 2026-11-26 to 2026-11-27 · THY PHAROTH
