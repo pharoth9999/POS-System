@@ -17,6 +17,8 @@ Roles: ADMIN (back office) and CASHIER (sells at Shop C). Default language Khmer
 - `npm run type-check`, `npm test` (single run), `npm run test:unit` (watch)
 - `npm run build`: type-check + production build into `dist/`
 - Before every commit: `npm run lint && npm run type-check && npm test && npm run build`
+- CI (`.github/workflows/ci.yml`, on push/PR to `main` and `develop`) runs `check:lint` (Oxlint + ESLint without
+  auto-fix, any warning fails), `type-check`, `test` and `build-only`. Run `npm run check:lint` to see what CI sees.
 
 ## Structure
 - `src/main.ts`: creates the app and installs Pinia, i18n and the router.
