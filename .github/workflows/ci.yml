@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+# Read-only token: CI only checks code, it never writes to the repo.
+permissions:
+  contents: read
+
+# A newer push to the same branch or PR cancels the run in progress.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+
+      # `npm run lint` auto-fixes locally. CI only checks (Oxlint + ESLint, warnings fail).
+      - name: Lint
+        run: npm run check:lint
+      - name: Type check
+        run: npm run type-check
+      - name: Unit tests
+        run: npm test
+      # build-only: `npm run build` would type-check a second time.
+      - name: Build
+        run: npm run build-only
+        env:
+          VITE_API_URL: http://localhost:3000/api
+
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+
+    # Throwaway database for migrations and e2e tests, same version as infra/docker-compose.yml.
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: pos
+          POSTGRES_PASSWORD: pos_ci_password
+          POSTGRES_DB: pos_ci
+          TZ: UTC
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U pos -d pos_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    # There is no .env in CI. The app, the TypeORM CLI and the seed read these instead.
+    # Not secrets: they only reach the throwaway CI database above.
+    env:
+      NODE_ENV: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: pos
+      DB_PASS: pos_ci_password
+      DB_NAME: pos_ci
+      CORS_ORIGIN: http://localhost:5173
+      SEED_ADMIN_USERNAME: admin
+      SEED_ADMIN_PASSWORD: ci-admin-password
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+
+      # The backend uses Oxlint (no ESLint is installed there).
+      - name: Lint
+        run: npm run check:lint
+      # `nest build` skips *.spec.ts and test/, so type-check everything explicitly.
+      - name: Type check
+        run: npm run type-check
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        run: npm run build
+
+      - name: Run migrations
+        run: npm run migration:run
+      # Fails if an entity changed without a migration (synchronize is off).
+      - name: Check for missing migrations
+        run: npm run migration:check
+      - name: Seed
+        run: npm run seed
+      - name: E2E tests
+        run: npm run test:e2e

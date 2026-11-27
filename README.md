@@ -21,3 +21,11 @@ cp .env.example .env
 npm install
 npm run dev
 ```
+
+## CI
+
+GitHub Actions ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs on every push and pull request to `main` and `develop`:
+
+- **Frontend:** lint (no auto-fix, warnings fail), type-check, unit tests, build.
+- **Backend:** lint, type-check, unit tests, build, then against a fresh Postgres 17: migrations, a check that no entity
+  changed without a migration, seed, and e2e tests.

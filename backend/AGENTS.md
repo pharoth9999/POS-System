@@ -18,6 +18,9 @@ Only the database runs in Docker in development. The backend and frontend run lo
 - `npm run start:dev`: http://localhost:3000/api, Swagger at /api/docs
 - `npm run migration:generate -- src/database/migrations/<Name>`, `npm run migration:run`, `npm run seed`
 - Before every commit: `npm run lint && npm test && npm run test:e2e`
+- CI (`.github/workflows/ci.yml`, on push/PR to `main` and `develop`) runs `check:lint` (Oxlint, warnings fail),
+  `type-check`, `test`, `build`, `migration:run`, `migration:check` (fails if an entity changed without a migration),
+  `seed` and `test:e2e`, against a fresh Postgres 17. Run `npm run migration:check` locally after changing entities.
 
 ## Structure
 - `src/main.ts`: starts the app. `src/app.setup.ts`: `configureApp()` holds ALL global HTTP setup
