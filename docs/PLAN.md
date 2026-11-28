@@ -35,7 +35,7 @@ Keep this file at the root of the repository (or in `docs/`) and update it every
 - [x] Choose the tech stack and set up the backend and database · 2026-11-26 to 2026-11-27 · THY PHAROTH
 - [x] Set up the frontend project: layout, routing, shared components · 2026-11-26 to 2026-11-27 · THY PHAROTH
 - [x] Create the Telegram bot and test sending a message to the client's chat · 2026-11-26 to 2026-11-27 · ROM TOLA
-- [ ] **Milestone: Proposal approved** · 2026-11-27
+- [x] **Milestone: Proposal approved** · 2026-11-27
 
 ## 2. Design (week 2, 2026-11-30 to 2026-12-04)
 
